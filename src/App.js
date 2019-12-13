@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import Counter from './components/Counter';
-import Tasks from './components/Tasks';
+import CounterContainer from './containers/CounterContainer';
+import TasksContainer from './containers/TasksContainer';
 
 function App() {
   return (
     <div>
-      <Counter number={0} />
+      <CounterContainer />
       <hr />
-      <Tasks />
+      <TasksContainer />
     </div>
   );
 }
