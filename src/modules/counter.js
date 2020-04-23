@@ -11,6 +11,13 @@ const DECREASE = 'counter/DECREASE';
 export const increase = createAction( ( INCREASE ) );
 export const decrease = createAction( ( DECREASE ) );
 
+export const increaseAsync = () => dispatch => {
+  setTimeout( () => dispatch( increase() ), 1000 );
+};
+export const decreaseAsync = () => dispatch => {
+  setTimeout( () => dispatch( decrease() ), 1000 );
+};
+
 const initialState = {
   number: 0,
 };
@@ -35,8 +42,8 @@ const initialState = {
 // handleAction 함수의 첫 번째 파라미터는 각 액션에 대한 업데이트 함수, 두 번째 파라미터는 초기 상태
 const counter = handleActions(
   {
-    [INCREASE]: ( state, action ) => ( { number: state.number + 1 } ),
-    [DECREASE]: ( state, action ) => ( { number: state.number - 1 } ),
+    [INCREASE]: state => ( { number: state.number + 1 } ),
+    [DECREASE]: state => ( { number: state.number - 1 } ),
   },
   initialState,
 );
